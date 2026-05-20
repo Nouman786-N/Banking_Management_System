@@ -1,80 +1,59 @@
-Banking Management System
+**Banking Management System**
 
-A GUI-based Banking Management System developed as an academic project.
-This system provides basic banking functionalities with a user-friendly interface.
-
-━━━━━━━━━━━━━━━━━━
-
-📌 Features
-
-• Create New Account
-• Deposit Money
-• Withdraw Money
-• Balance Inquiry
-• Customer Record Management
-• Secure Login System
-• GUI/Web-based Interface
+A GUI-based Banking Management System developed as a **First Semester Academic Project**.
+This project was designed to simulate basic banking operations through a simple, interactive, and user-friendly interface.
 
 ━━━━━━━━━━━━━━━━━━
 
-💻 Technologies Used
+**📌 Project Overview**
+
+The Banking Management System helps users manage banking records efficiently by providing essential banking functionalities in an organized way. The project focuses on improving understanding of programming logic, GUI/web development, and database handling techniques.
+
+This system was created for educational purposes and demonstrates the practical implementation of real-world banking operations in a software environment.
+
+━━━━━━━━━━━━━━━━━━
+
+**🚀 Features**
+
+• **Add New Account** – Create and store customer account details
+• **Search Account** – Quickly find account information using account data
+• **Display Account** – View saved customer account records in an organized format
+• **User-Friendly GUI** – Simple and clean interface for better user interaction
+• **Data Management** – Efficient handling of banking information
+
+━━━━━━━━━━━━━━━━━━
+
+**💻 Technologies Used**
 
 • HTML
 • CSS
-• JavaScript
-• PHP / Python / MySQL (jo use hua ho)
+• GUI/Web Development Concepts
 • Database Management
 
 ━━━━━━━━━━━━━━━━━━
 
-📷 Project Screenshots
+**📚 Learning Outcomes**
 
-Home Page
-![Home Page](images/home.png)
+Through this project, the following concepts were explored and practiced:
 
-Dashboard
-![Dashboard](images/dashboard.png)
-
-Transaction Page
-![Transaction](images/transaction.png)
-
-━━━━━━━━━━━━━━━━━━
-
-🚀 How to Run the Project
-
-1. Download or clone the repository
-2. Open the project folder
-3. Run using local server (XAMPP / VS Code Live Server)
-
-Example:
-
-```bash
-git clone <your-github-link>
-```
+• GUI/Web Interface Development
+• Basic Banking System Logic
+• Database Connectivity
+• Record Management Techniques
+• Programming Fundamentals
+• User Interaction Handling
 
 ━━━━━━━━━━━━━━━━━━
 
-📚 Purpose of Project
+**🎯 Purpose of the Project**
 
-This project was created for educational purposes as a semester project to understand:
-
-• Banking operations
-• Database connectivity
-• GUI/Web development
-• User interaction systems
+The main purpose of developing this Banking Management System was to gain practical experience in software development and understand how banking operations can be managed digitally through programming and database systems.
 
 ━━━━━━━━━━━━━━━━━━
 
-👨‍💻 Author
+**👨‍💻 Author**
 
-Nouman Majeed
+**Nouman Majeed**
 
-━━━━━━━━━━━━━━━━━━
-
-⭐ Future Improvements
-
-• Online Banking Features
-• ATM Integration
-• Mobile Responsive Design
-• Advanced Security System
-
+First Semester Student Project
+Developed for learning and academic purposes.
