@@ -1,6 +1,6 @@
 **Banking Management System**
 
-A GUI-based Banking Management System developed as a **First Semester Academic Project**.
+A GUI-based and C++ Application Based Banking Management System developed as a **First Semester Academic Project**.
 This project was designed to simulate basic banking operations through a simple, interactive, and user-friendly interface.
 
 ━━━━━━━━━━━━━━━━━━
