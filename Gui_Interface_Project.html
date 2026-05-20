@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Banking Management System</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+/* ===== SPLASH SCREEN ===== */
+#splash {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 5s;
+}
+
+#splash h1 {
+    font-size: 48px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+}
+
+#splash p {
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.members {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.members div {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.members div:nth-child(1){animation-delay:2.5s;}
+.members div:nth-child(2){animation-delay:3s;}
+.members div:nth-child(3){animation-delay:3.5s;}
+.members div:nth-child(4){animation-delay:4s;}
+.members div:nth-child(5){animation-delay:4.5s;}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ===== MAIN SYSTEM ===== */
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2c3e50;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    font-size: 15px;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+.exit-btn {
+    background: #e74c3c;
+}
+
+.exit-btn:hover {
+    background: #c0392b;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #ecf0f1;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SPLASH SCREEN -->
+<div id="splash">
+    <h1>Banking Management System</h1>
+    <p>Web Based GUI Project</p>
+
+    <div class="members">
+        <div><strong>Group A Members</strong></div>
+        <div>1) Capt. N</div>
+        <div>2) Abdul Moheez</div>
+        <div>3) Aliyan</div>
+        <div>4) Raja Areeb Ajmal</div>
+    </div>
+</div>
+
+<!-- MAIN HEADER -->
+<header>
+    <h1>Banking Management System</h1>
+    <p>Professional Web GUI</p>
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Add Account</h2>
+        <input type="number" id="accNo" placeholder="Account Number">
+        <input type="text" id="name" placeholder="Account Holder Name">
+        <input type="number" id="balance" placeholder="Balance">
+        <button onclick="addAccount()">Add Record</button>
+    </div>
+
+    <div class="section">
+        <h2>Search Account</h2>
+        <input type="number" id="searchAcc" placeholder="Enter Account Number">
+        <button onclick="searchAccount()">Search</button>
+        <p id="searchResult"></p>
+    </div>
+
+    <div class="section">
+        <h2>Display All Accounts</h2>
+        <button onclick="displayAccounts()">Display Records</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Account No</th>
+                    <th>Name</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <button class="exit-btn" onclick="exitSystem()">Exit System</button>
+    </div>
+
+</div>
+
+<script>
+let accounts = [];
+
+function addAccount() {
+    let accNo = Number(accNoInput.value);
+    let name = nameInput.value;
+    let balance = Number(balanceInput.value);
+
+    if (!accNo || !name || !balance) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    if (accounts.some(a => a.accNo === accNo)) {
+        alert("Account already exists");
+        return;
+    }
+
+    accounts.push({ accNo, name, balance });
+    alert("Account Added");
+
+    accNoInput.value = "";
+    nameInput.value = "";
+    balanceInput.value = "";
+}
+
+function displayAccounts() {
+    tableBody.innerHTML = "";
+    accounts.forEach(a => {
+        tableBody.innerHTML += `
+        <tr>
+            <td>${a.accNo}</td>
+            <td>${a.name}</td>
+            <td>${a.balance}</td>
+        </tr>`;
+    });
+}
+
+function searchAccount() {
+    let acc = Number(searchAcc.value);
+    let found = accounts.find(a => a.accNo === acc);
+    searchResult.innerText = found
+        ? `Account Found: ${found.name}, Balance: ${found.balance}`
+        : "Account Not Found";
+}
+
+function exitSystem() {
+    if (confirm("Exit system?")) {
+        accounts = [];
+        tableBody.innerHTML = "";
+        searchResult.innerText = "";
+        alert("System Closed");
+    }
+}
+
+const accNoInput = document.getElementById("accNo");
+const nameInput = document.getElementById("name");
+const balanceInput = document.getElementById("balance");
+const tableBody = document.getElementById("tableBody");
+const searchAcc = document.getElementById("searchAcc");
+const searchResult = document.getElementById("searchResult");
+</script>
+
+</body>
+</html>
+ss
